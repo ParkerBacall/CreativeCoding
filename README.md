@@ -2,7 +2,7 @@
 Parker Bacall <Pbacall2@gmail.com>
 
 Spring 2016 Creative Coding using openFrameworks 
-EDPX, University of Denver
+EDP, University of Denver
 
 Bacall_Face: An illustration in openFrameworks of the Boognish, a logo for the band Ween.
 

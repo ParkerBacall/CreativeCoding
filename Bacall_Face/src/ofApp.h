@@ -1,3 +1,9 @@
+//Parker Bacall
+//EDP, University of Denver
+//April 2016
+//CC BY-SA
+
+
 #pragma once
 
 #include "ofMain.h"
