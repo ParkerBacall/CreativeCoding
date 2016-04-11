@@ -13,6 +13,13 @@ Release*/
 # IDE-specific ignore patterns (e.g. user-specific files)
 
 #XCode
+*.xcodeproj
+project.pbxproj
+xcshareddata
+xcschemes
+Project.xcconfig
+config.make
+openFrameworks-Info.plist
 *.pbxuser
 *.perspective
 *.perspectivev3
@@ -28,7 +35,13 @@ xcuserdata
 *.cbTemp
 
 #Visual Studio
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+icon.rc
 *.sdf
+*.pdf
 *.opensdf
 *.suo
 ipch/
