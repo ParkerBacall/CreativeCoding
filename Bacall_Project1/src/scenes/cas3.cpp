@@ -1,6 +1,6 @@
 #include "cas3.h"
 
-
+#include "ofApp.h"
 
 //--------------------------------------------------------------
 void CAScene3::setup(){
@@ -54,9 +54,11 @@ void CAScene3::draw(){
     myGlitch.generateFx();
     myFbo.draw(0, 0);
     
-    ofSetColor(255);
-    ofDrawBitmapStringHighlight("rule:"+ofToString(ca3d.getRule()), 10, 20);
-
+    ofApp *app = (ofApp *)ofxGetAppPtr();
+    if(app->debug) {
+        ofSetColor(255);
+        ofDrawBitmapStringHighlight("rule:"+ofToString(ca3d.getRule()), 10, 20);
+    }
 }
 
 //--------------------------------------------------------------

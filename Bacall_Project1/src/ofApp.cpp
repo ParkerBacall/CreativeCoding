@@ -38,6 +38,8 @@ void ofApp::setup(){
     //
     setSceneManager(&sceneManager);
     
+    debug = false;
+    
 }
 
 //--------------------------------------------------------------
@@ -50,11 +52,13 @@ void ofApp::update(){
 void ofApp::draw(){
     //the current scene is automatically drawn before this function
     
+    if(debug == true) {
     // draw current scene info using the ofxBitmapString stream interface
     // to ofDrawBitmapString
     ofSetColor(200);
     ofDrawBitmapStringHighlight("Current Scene: " + ofToString(sceneManager.getCurrentSceneIndex()) + " " + sceneManager.getCurrentSceneName(), 12, ofGetHeight()-8);
     ofDrawBitmapStringHighlight("fps: "+ofToString(ofGetFrameRate()), ofGetWidth()-110, 20);
+    }
 }
 
 // current scene input functions are called automatically before calling these
@@ -63,10 +67,6 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     switch (key) {
-            
-       // case 'd':
-         //   bDebug = !bDebug;
-           // break;
             
         //case 'f':
            // ofToggleFullscreen();
@@ -93,6 +93,10 @@ void ofApp::keyPressed(int key){
             
         case OF_KEY_UP:
             sceneManager.gotoScene(lastScene);
+            break;
+            
+        case 'd':
+            debug = !debug;
             break;
     }
 

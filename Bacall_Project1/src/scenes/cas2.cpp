@@ -1,4 +1,5 @@
 #include "cas2.h"
+#include "ofApp.h"
 
 //--------------------------------------------------------------
 void CAScene2::setup(){
@@ -43,9 +44,11 @@ void CAScene2::draw(){
     myGlitch.generateFx();
     myFbo.draw(0, 0);
     
+    ofApp *app = (ofApp *)ofxGetAppPtr();
+    if(app->debug) {
     ofSetColor(255);
     ofDrawBitmapStringHighlight("rule:"+ofToString(ca2d.getRule()), 10, 20);
-    
+    }
 }
 
 
