@@ -9,11 +9,12 @@ void ofApp::setup(){
     ofSetVerticalSync(true);
     ofSetFrameRate(60);
     camera.setDistance(400);
-    ofSetCircleResolution(3);
+    ofSetCircleResolution(10);
     
     boog.load("boog.png");
     bDrawBoog = false;
     bShowHelp  = false;
+    bShowGui = false;
     myFbo.allocate(512, 512);
     
     myGlitch.setup(&myFbo);
@@ -27,6 +28,7 @@ void ofApp::setup(){
 void ofApp::update(){
     myFbo.begin();
     ofClear(0, 0, 0,255);
+    
     if (!bDrawBoog){
         camera.begin();
         
@@ -34,7 +36,7 @@ void ofApp::update(){
         
         ofSetLineWidth(2);
         
-        ofTranslate(25, 50);
+        ofTranslate(20, 50);
         
         
         
@@ -180,15 +182,15 @@ void ofApp::update(){
 void ofApp::draw(){
     
     /* draw normal view */
-    ofSetColor(255);
-    myFbo.draw(0, 0);
+    //ofSetColor(255);
+    //myFbo.draw(0, 0);
     
     /* Apply effects */
     myGlitch.generateFx();
     
     /* draw effected view */
     ofSetColor(255);
-    myFbo.draw(512, 0);
+    myFbo.draw(0, 0);
     
     
     /* show information*/
@@ -204,9 +206,13 @@ void ofApp::draw(){
         ofSetColor(255);
         ofDrawBitmapString(info, 30,30);
     }
-    
+    if (bShowGui){
+        
     gui.draw();
+
+    }
 }
+    
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
@@ -231,6 +237,7 @@ void ofApp::keyPressed(int key){
     
     if (key == 'l') bDrawBoog ^= true;
     if (key == 'h') bShowHelp ^= true;
+    if (key == 'g') bShowGui ^= true;
     
     if (key == 's') {
         

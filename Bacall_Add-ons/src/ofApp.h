@@ -1,8 +1,3 @@
-//Parker Bacall
-//EDP, University of Denver
-//April 2016
-//CC BY-SA
-
 #pragma once
 
 #include "ofMain.h"
@@ -29,6 +24,7 @@ public:
     ofImage			boog;
     bool			bDrawBoog;
     bool			bShowHelp;
+    bool			bShowGui;
     
     ofFbo			myFbo;
     ofEasyCam		camera;
