@@ -11,11 +11,11 @@ void ofApp::setup(){
     camera.setDistance(400);
     ofSetCircleResolution(10);
     
-    boog.load("boog.png");
+    bridge.load("bridge.jpg");
     bDrawBoog = false;
     bShowHelp  = false;
     bShowGui = false;
-    myFbo.allocate(512, 512);
+    myFbo.allocate(1200, 860);
     
     myGlitch.setup(&myFbo);
     
@@ -172,7 +172,7 @@ void ofApp::update(){
         camera.end();
     }else{
         ofSetColor(255);
-        boog.draw(0, 0);
+        bridge.draw(0, 0);
     }
     myFbo.end();
     

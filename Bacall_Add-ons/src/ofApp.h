@@ -21,7 +21,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    ofImage			boog;
+    ofImage			bridge;
     bool			bDrawBoog;
     bool			bShowHelp;
     bool			bShowGui;
@@ -41,6 +41,6 @@ public:
     
     
     ofxFloatSlider angle;
-    //ofxToggle bDrawBoog;
+    //ofxToggle bDrawbridge;
     ofxPanel gui;
 };
