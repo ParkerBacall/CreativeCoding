@@ -1,20 +1,28 @@
 
+##Creative Coding
 Parker Bacall <Pbacall2@gmail.com>
 
 Spring 2016 Creative Coding using openFrameworks 
 EDP @ University of Denver
 
-Bacall_Face: 
+## Downloading: 
+If you have git set up, you can clone this repo using:
+
+	git clone https://github.com/ParkerBacall/CreativeCoding
+
+The resulting "CreativeCodingExamples" folder should be placed within the `openFrameworks/apps` folder.
+
+##Bacall_Face: 
 An illustration in openFrameworks of the Boognish, logo for the band Ween.
 
-Bacall_Animation: 
+##Bacall_Animation: 
 Skateboarding dog graphic I drew in openFrameworks animated to rotate, and to travel in an endless path using the ofNoise function. Press the mouse to delete the trail left by the dog, press ‘z’ to turn the trail off, press ‘x’ to turn the trail back on. Press ‘c’ to stop the dog’s rotation, and press ‘v’ to turn rotation back on. Use the ’s’ key to take a screenshot.
 
-Bacall_Add-ons: Add-ons required: ofxPostGlitch, ofxGui. 
-
+##Bacall_Add-ons: Add-ons required: ofxPostGlitch, ofxGui. 
 Use the Gui slider to effect the rotation speed of the dog. Unaffected images are generated on the left. Use keys ‘1’ through ‘0’ to add various glitch effects to the screen, hitting more than one button at a time adds multiple effects. The ‘q’ through ‘u’ keys change the color on the screen. Use the ‘l’ key to switch between the 3d and 2d images. Use the ‘h’ key to toggle the help menu. Use the ’s’ key to take a screenshot.
 
-Bacall_Project1: Add-ons required: ofxPostGlitch, ofxGui, ofxAppUtils, ofxCellularAutomata. 
+##Bacall_Project1: 
+Add-ons required: ofxPostGlitch, ofxGui, ofxAppUtils, ofxCellularAutomata. 
 
 This program features three different scenes generated using ofxCellularAutomata.
 
