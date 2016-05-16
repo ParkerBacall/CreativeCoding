@@ -30,9 +30,9 @@ This program features three different scenes generated using ofxCellularAutomata
 
 To move through the scenes use the left and right arrow keys. The down key will stop the scene from running, and the up key will reload the scene at the same point it was at.  The 'a' key will change the rule generating the cellular structure. The 'd' key will toggle display of the current frame rate, rule and scene. The 'p' key will pause the current scene and hitting 'p' again will resume the scene, but not reload the scene. In any of the three scenes keys ‘1’ through ‘0’ on the keyboard will add glitch effects to the scene and keys ‘q’ through ‘u’ will effect the color of the scene. The 's' key can be used to take a screenshot in any scene to save your generative glitch art! 
 
-![alt tag](https://github.com/ParkerBacall/CreativeCoding/blob/master/_screenshots/Project_1/savedScreenshot_2016-04-29-15-13-24-210.png)
+![alt tag](https://github.com/ParkerBacall/CreativeCoding/blob/master/_screenshots/Project_1/savedScreenshot_2016-04-26-19-47-18-854.png)
 
-![alt tag](https://github.com/ParkerBacall/CreativeCoding/blob/master/_screenshots/Project_1/savedScreenshot_2016-04-27-00-32-32-246.png)
+![alt tag](https://github.com/ParkerBacall/CreativeCoding/blob/master/_screenshots/Project_1/savedScreenshot_2016-04-27-13-06-56-434.png)
 
 ![alt tag](https://github.com/ParkerBacall/CreativeCoding/blob/master/_screenshots/Project_1/savedScreenshot_2016-05-07-18-09-36-683.png)
 
