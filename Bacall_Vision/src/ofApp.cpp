@@ -1,21 +1,26 @@
 #include "ofApp.h"
 
+using namespace ofxCv;
+using namespace cv;
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
+    width= 640;
+    height= 480;
     
     //setup Frame Rate and Verticle Snyc
     ofSetVerticalSync(TRUE);
     ofSetFrameRate(60);
     
     //allocate Fbo to fit screen
-    myFbo.allocate(640, 480);
+    myFbo.allocate(width, height);
     
     //setup glitch textures in Fbo
     myGlitch.setup(&myFbo);
     
     // Set capture dimensions
-    camWidth = 640;
-    camHeight = 480;
+    camWidth = width;
+    camHeight = height;
     
     // Open an ofVideoGrabber for the camera
    myVideoGrabber.initGrabber (camWidth,camHeight);
@@ -36,6 +41,7 @@ void ofApp::update(){
             //update and draw the videoGrabber in Fbo
             myVideoGrabber.update();
             myVideoGrabber.draw(0,0);
+            contourFinder.findContours(myVideoGrabber);
     
         //end the pushView
         ofPopView();
@@ -53,7 +59,7 @@ void ofApp::draw(){
     
     /* draw effected view */
     myFbo.draw(0, 0);
-    
+    contourFinder.draw();
    
     
    }
