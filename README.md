@@ -6,11 +6,11 @@ Spring 2016 Creative Coding using openFrameworks
 EDP @ University of Denver
 
 ## Downloading: 
-If you have git set up, you can clone this repo using:
+If you have git set up, you can clone this repo by first changing to the directory you want the repo to be in and then using:
 
 	git clone https://github.com/ParkerBacall/CreativeCoding.git
 
-The resulting "CreativeCodingExamples" folder should be placed within the `openFrameworks/apps` folder.
+The resulting "CreativeCoding" folder should be placed within the `openFrameworks/apps` folder.
 
 ##Bacall_Face: 
 An illustration in openFrameworks of the Boognish, logo for the band Ween.
