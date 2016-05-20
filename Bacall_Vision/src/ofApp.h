@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxPostGlitch.h"
-
+#include "ofxCv.h"
 
 class ofApp : public ofBaseApp{
     
@@ -17,6 +17,8 @@ public:
     //initialize Fbo
     ofFbo  myFbo;
     
+    ofxCv::ContourFinder contourFinder;
+    
     /*Addon instance*/
     ofxPostGlitch	myGlitch;
     ofTexture		texture;
@@ -25,6 +27,8 @@ public:
     ofVideoGrabber myVideoGrabber;
     int camWidth;
     int camHeight;
-    
+  
+    int width;
+    int height;
 
 };

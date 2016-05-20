@@ -41,7 +41,7 @@ void ofApp::update(){
             //update and draw the videoGrabber in Fbo
             myVideoGrabber.update();
             myVideoGrabber.draw(0,0);
-            contourFinder.findContours(myVideoGrabber);
+            //contourFinder.findContours(myVideoGrabber);
     
         //end the pushView
         ofPopView();
@@ -59,7 +59,8 @@ void ofApp::draw(){
     
     /* draw effected view */
     myFbo.draw(0, 0);
-    contourFinder.draw();
+    
+    //contourFinder.draw();
    
     
    }
