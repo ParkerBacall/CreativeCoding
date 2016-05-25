@@ -1,4 +1,0 @@
-ofxAppUtils
-ofxCellularAutomata
-ofxGui
-ofxPostGlitch

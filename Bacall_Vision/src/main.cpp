@@ -12,9 +12,10 @@
 int main( ){
     
     ofAppGlutWindow window;
-    ofSetupOpenGL(&window, 640,480, OF_WINDOW);
+    ofSetupOpenGL(&window, 1200,960, OF_WINDOW);
     
 
-    ofRunApp( new ofApp());
+    ofRunAppWithAppUtils(new ofApp());
+
     
 }

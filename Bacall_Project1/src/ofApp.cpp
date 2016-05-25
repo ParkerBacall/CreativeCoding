@@ -68,9 +68,9 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
     switch (key) {
             
-        //case 'f':
-           // ofToggleFullscreen();
-           // break;
+        case 'f':
+            ofToggleFullscreen();
+            break;
             
         case 'p':
             sceneManager.runToggle();

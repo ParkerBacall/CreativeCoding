@@ -1,118 +1,130 @@
 #include "ofApp.h"
 
-using namespace ofxCv;
-using namespace cv;
+#include "scenes/scenes.h"
+
+
+
 //--------------------------------------------------------------
 void ofApp::setup(){
-    
-    width= 640;
-    height= 480;
-    
-    //setup Frame Rate and Verticle Snyc
-    ofSetVerticalSync(TRUE);
+   
+
+    ofBackground(255);
     ofSetFrameRate(60);
+
+    // load scenes
+    sceneManager.add(new visionScene2());
+    sceneManager.add(new visionScene1());
     
-    //allocate Fbo to fit screen
-    myFbo.allocate(width, height);
+    sceneManager.setup(true); // true = setup all the scenes now (not on the fly)
+    ofSetLogLevel("ofxSceneManager", OF_LOG_VERBOSE); // lets see whats going on inside
     
-    //setup glitch textures in Fbo
-    myGlitch.setup(&myFbo);
+    sceneManager.gotoScene("Scene1", true);
+    lastScene = sceneManager.getCurrentSceneIndex();
     
-    // Set capture dimensions
-    camWidth = width;
-    camHeight = height;
+    // overlap scenes when transitioning
+    sceneManager.setOverlap(true);
     
-    // Open an ofVideoGrabber for the camera
-   myVideoGrabber.initGrabber (camWidth,camHeight);
+    // attach scene manager to this ofApp so it's called automatically,
+    // you can also call the callbacks (update, draw, keyPressed, etc) manually
+    // if you don't set it
+    //
+    // you can also turn off the auto sceneManager update and draw calls with:
+    // setSceneManagerUpdate(false);
+    // setSceneManagerDraw(false);
+    //
+    // the input callbacks in your scenes will be called if they are implemented
+    //
+    setSceneManager(&sceneManager);
     
+    debug = false;
     
-  
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    //begin Fbo
-    myFbo.begin();
-    
-        //begin Pushview
-        ofPushView();
-   
-            //update and draw the videoGrabber in Fbo
-            myVideoGrabber.update();
-            myVideoGrabber.draw(0,0);
-            //contourFinder.findContours(myVideoGrabber);
-    
-        //end the pushView
-        ofPopView();
-        
-    //end the Fbo
-    myFbo.end();
-    
+    // the current scene is automatically updated before this function
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-   
-    /* Apply effects */
-    myGlitch.generateFx();
+    //the current scene is automatically drawn before this function
     
-    /* draw effected view */
-    myFbo.draw(0, 0);
-    
-    //contourFinder.draw();
-   
-    
-   }
-    
+    if(debug == true) {
+    // draw current scene info using the ofxBitmapString stream interface
+    // to ofDrawBitmapString
+    ofSetColor(200);
+    ofDrawBitmapStringHighlight("Current Scene: " + ofToString(sceneManager.getCurrentSceneIndex()) + " " + sceneManager.getCurrentSceneName(), 12, ofGetHeight()-8);
+    ofDrawBitmapStringHighlight("fps: "+ofToString(ofGetFrameRate()), ofGetWidth()-110, 20);
+    }
+}
+
+// current scene input functions are called automatically before calling these
+
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if (key == '1') myGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE	, true);
-    if (key == '2') myGlitch.setFx(OFXPOSTGLITCH_GLOW			, true);
-    if (key == '3') myGlitch.setFx(OFXPOSTGLITCH_SHAKER			, true);
-    if (key == '4') myGlitch.setFx(OFXPOSTGLITCH_CUTSLIDER		, true);
-    if (key == '5') myGlitch.setFx(OFXPOSTGLITCH_TWIST			, true);
-    if (key == '6') myGlitch.setFx(OFXPOSTGLITCH_OUTLINE		, true);
-    if (key == '7') myGlitch.setFx(OFXPOSTGLITCH_NOISE			, true);
-    if (key == '8') myGlitch.setFx(OFXPOSTGLITCH_SLITSCAN		, true);
-    if (key == '9') myGlitch.setFx(OFXPOSTGLITCH_SWELL			, true);
-    if (key == '0') myGlitch.setFx(OFXPOSTGLITCH_INVERT			, true);
-    
-    if (key == 'q') myGlitch.setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST, true);
-    if (key == 'w') myGlitch.setFx(OFXPOSTGLITCH_CR_BLUERAISE	, true);
-    if (key == 'e') myGlitch.setFx(OFXPOSTGLITCH_CR_REDRAISE	, true);
-    if (key == 'r') myGlitch.setFx(OFXPOSTGLITCH_CR_GREENRAISE	, true);
-    if (key == 't') myGlitch.setFx(OFXPOSTGLITCH_CR_BLUEINVERT	, true);
-    if (key == 'y') myGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT	, true);
-    if (key == 'u') myGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT	, true);
-    
-    
-    if (key == 's') {
-        
-        ofSaveScreen("savedScreenshot_"+ofGetTimestampString()+".png");
+    switch (key) {
+            
+        case 'f':
+            ofToggleFullscreen();
+            break;
+            
+        case 'p':
+            sceneManager.runToggle();
+            break;
+            
+        case OF_KEY_LEFT:
+            sceneManager.prevScene();
+            break;
+            
+        case OF_KEY_RIGHT:
+            sceneManager.nextScene();
+            break;
+            
+        case OF_KEY_DOWN:
+            if(sceneManager.getCurrentScene()) { // returns NULL if no scene selected
+                lastScene = sceneManager.getCurrentSceneIndex();
+            }
+            sceneManager.noScene();
+            break;
+            
+        case OF_KEY_UP:
+            sceneManager.gotoScene(lastScene);
+            break;
+            
+        case 'd':
+            debug = !debug;
+            break;
     }
+
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    if (key == '1') myGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE	, false);
-    if (key == '2') myGlitch.setFx(OFXPOSTGLITCH_GLOW			, false);
-    if (key == '3') myGlitch.setFx(OFXPOSTGLITCH_SHAKER			, false);
-    if (key == '4') myGlitch.setFx(OFXPOSTGLITCH_CUTSLIDER		, false);
-    if (key == '5') myGlitch.setFx(OFXPOSTGLITCH_TWIST			, false);
-    if (key == '6') myGlitch.setFx(OFXPOSTGLITCH_OUTLINE		, false);
-    if (key == '7') myGlitch.setFx(OFXPOSTGLITCH_NOISE			, false);
-    if (key == '8') myGlitch.setFx(OFXPOSTGLITCH_SLITSCAN		, false);
-    if (key == '9') myGlitch.setFx(OFXPOSTGLITCH_SWELL			, false);
-    if (key == '0') myGlitch.setFx(OFXPOSTGLITCH_INVERT			, false);
-    
-    if (key == 'q') myGlitch.setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST, false);
-    if (key == 'w') myGlitch.setFx(OFXPOSTGLITCH_CR_BLUERAISE	, false);
-    if (key == 'e') myGlitch.setFx(OFXPOSTGLITCH_CR_REDRAISE	, false);
-    if (key == 'r') myGlitch.setFx(OFXPOSTGLITCH_CR_GREENRAISE	, false);
-    if (key == 't') myGlitch.setFx(OFXPOSTGLITCH_CR_BLUEINVERT	, false);
-    if (key == 'y') myGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT	, false);
-    if (key == 'u') myGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT	, false);
+   
+
 }
+
+//--------------------------------------------------------------
+void ofApp::mouseMoved(int x, int y ){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::mouseDragged(int x, int y, int button){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::mousePressed(int x, int y, int button){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::mouseReleased(int x, int y, int button){
+
+}
+
+
 

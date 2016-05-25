@@ -2,12 +2,13 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
     x= 200;
     y=300;
     degrees = 0;
     ofBackground(255,255,181);
     ofSetBackgroundAuto(false);
-    //isMoving = true;
+    isMoving = true;
     isRotating = true;
 }
 
@@ -16,8 +17,8 @@ void ofApp::update(){
     
         if( isRotating){
         degrees= degrees - 2;
-    
     }
+   
         }
 
 //--------------------------------------------------------------
@@ -25,7 +26,7 @@ void ofApp::draw(){
     
     float x = ofMap( ofNoise( ofGetElapsedTimef()/3.5, -1000), 0, 1, 0, ofGetWidth());
     float y = ofMap( ofNoise( ofGetElapsedTimef()/3.5, 1000), 0, 1, 0, ofGetHeight());
-
+    
     
     ofSetLineWidth(2);
    
@@ -152,16 +153,16 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 
-    //if(key == 'q'){
+    if(key == 'q'){
         
-        //isMoving =false;
-    //}
+        isMoving =false;
+    }
     
-    //if(key == 'w'){
+    if(key == 'w'){
         
-      //  isMoving = true;
+        isMoving = true;
         
-    //}
+    }
     
     
     

@@ -8,7 +8,7 @@
 class CAScene1 : public ofxScene{
 
 	public:
-    
+   
     CAScene1() : ofxScene("cas1") {}
     
 		void setup();

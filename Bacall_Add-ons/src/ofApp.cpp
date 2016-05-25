@@ -11,7 +11,7 @@ void ofApp::setup(){
     camera.setDistance(400);
     ofSetCircleResolution(10);
     
-    bridge.load("bridge.jpg");
+    boog.load("boog.png");
     bDrawBoog = false;
     bShowHelp  = false;
     bShowGui = false;
@@ -19,9 +19,11 @@ void ofApp::setup(){
     
     myGlitch.setup(&myFbo);
     
+    bShowGui = TRUE;
+    
     gui.setup();
     gui.add(angle.setup("angle", 2, 1, 10));
-    //gui.add(bDrawBoog.setup45("2D / 3D",false,false,true));
+    gui.add(bDrawBoog.set("Image", false));
 }
 
 //--------------------------------------------------------------
@@ -30,20 +32,19 @@ void ofApp::update(){
     ofClear(0, 0, 0,255);
     
     if (!bDrawBoog){
-        camera.begin();
+        
         
         degrees= degrees - angle;
         
-        ofSetLineWidth(2);
+        ofSetLineWidth(3);
         
-        ofTranslate(20, 50);
+        ofTranslate(400, 400);
         
         
         
         ofRotate(degrees);
         
-        
-        
+
         ofFill();
         ofSetColor(255);
         ofDrawCircle(-32.5,30,6.5);
@@ -154,25 +155,10 @@ void ofApp::update(){
         ofDrawCircle(11, -9.5, 2.5);
         ofDrawCircle(4, -9.5, 2.5);
         
-        
-        //for (int i = 0;i < 100;i++){
-        //	if		(i % 5 == 0)ofSetColor(50 , 255, 100);
-        //	else if (i % 9 == 0)ofSetColor(255, 50, 100);
-        //	else				ofSetColor(255, 255, 255);
-        
-        //			ofPushMatrix();
-        //			ofRotate(ofGetFrameNum(), 1.0, 1.0, 1.0);
-        ///			ofTranslate((ofNoise(i/2.4)-0.5)*1000,
-        //					(ofNoise(i/5.6)-0.5)*1000,
-        //					(ofNoise(i/8.2)-0.5)*1000);
-        //		ofCircle(0, 0, (ofNoise(i/3.4)-0.5)*100+ofRandom(3));
-        //		ofPopMatrix();
-        //}
-        
-        camera.end();
+      
     }else{
         ofSetColor(255);
-        bridge.draw(0, 0);
+        boog.draw(0, 0);
     }
     myFbo.end();
     
