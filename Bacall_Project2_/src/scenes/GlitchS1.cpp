@@ -27,6 +27,25 @@ void GlitchS1::setup(){
     
     //setup glitch textures in Fbo
     myGlitch.setup(&myFbo);
+    
+    myGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE	, false);
+    myGlitch.setFx(OFXPOSTGLITCH_GLOW			, false);
+    myGlitch.setFx(OFXPOSTGLITCH_SHAKER			, false);
+    myGlitch.setFx(OFXPOSTGLITCH_CUTSLIDER		, false);
+    myGlitch.setFx(OFXPOSTGLITCH_TWIST			, false);
+    myGlitch.setFx(OFXPOSTGLITCH_OUTLINE		, false);
+    myGlitch.setFx(OFXPOSTGLITCH_NOISE			, false);
+    myGlitch.setFx(OFXPOSTGLITCH_SLITSCAN		, false);
+    myGlitch.setFx(OFXPOSTGLITCH_SWELL			, false);
+    myGlitch.setFx(OFXPOSTGLITCH_INVERT			, false);
+    
+    myGlitch.setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST, false);
+    myGlitch.setFx(OFXPOSTGLITCH_CR_BLUERAISE	, false);
+    myGlitch.setFx(OFXPOSTGLITCH_CR_REDRAISE	, false);
+    myGlitch.setFx(OFXPOSTGLITCH_CR_GREENRAISE	, false);
+    myGlitch.setFx(OFXPOSTGLITCH_CR_BLUEINVERT	, false);
+    myGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT	, false);
+    myGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT	, false);
 }
 
 //--------------------------------------------------------------
