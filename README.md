@@ -64,12 +64,13 @@ Add-ons required: ofxPostGlitch, ofxAppUltils, ofxGui
 
 This program takes a feed of images from the computer's video camera and glitches it. There is a gui slider that controls how much glitch is added to the image, sliding to 0 will reverse the colors of the image. The glitch can leave a tracer of the movement captured by the video grabber. The ‘1’ through ‘0’ keys to add various glitch effects to the screen, hitting more than one button at a time adds multiple effects. The ‘q’ through ‘u’ keys change the color of the image. There is a gui toggle that toggles whether the glitch effects are kept on the image after you release the key or not. hitting 'p' will pause the image and the glitch effects can be used to wash it off of the screen. Use the ’s’ key to take a screenshot! 'i' hides the gui interface a 'd' toggles the fps. I hope to add a record feature and a new scene witch allows the user to glitch a video file.
 
-[alt tag](https://github.com/ParkerBacall/CreativeCoding/blob/master/_screenshots/Project_2_/savedScreenshot_2016-05-23-21-54-07-067.png)
+![alt tag](https://github.com/ParkerBacall/CreativeCoding/blob/master/_screenshots/Project_2_/savedScreenshot_2016-05-23-21-54-07-067.png)
 
 ![alt tag](https://github.com/ParkerBacall/CreativeCoding/blob/master/_screenshots/Project_2_/savedScreenshot_2016-05-23-16-26-54-510.png)
 
 ![alt tag](https://github.com/ParkerBacall/CreativeCoding/blob/master/_screenshots/Project_2_/Screen%20Shot%202016-05-23%20at%203.49.33%20PM.png)
 
+![alt tag](https://github.com/ParkerBacall/CreativeCoding/blob/master/_screenshots/Project_2_/savedScreenshot_2016-05-25-14-53-29-725.png)
 
 
 
