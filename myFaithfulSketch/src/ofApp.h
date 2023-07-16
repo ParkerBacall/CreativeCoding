@@ -1,18 +1,9 @@
-//Parker Bacall
-//EDP, University of Denver
-//April 2016
-//CC BY-SA
-
-
 #pragma once
 
 #include "ofMain.h"
 #include "ofxPostGlitch.h"
-#include "ofxCellularAutomata.h"
-#include "ofxAppUtils.h"
-#include "ofxGui.h"
 
-class ofApp : public ofxApp{
+class ofApp : public ofBaseApp{
 
 	public:
 		void setup();
@@ -32,23 +23,6 @@ class ofApp : public ofxApp{
 		void gotMessage(ofMessage msg);
     
     vector<ofImage> image;
-
-        // handles the scenes
-        ofxSceneManager sceneManager;
-        int lastScene;
-
-    ofFbo			myFbo;
-    ofEasyCam		camera;
-    
-    ofTexture		texture;
-    
-    /*Addon instance*/
-    ofxPostGlitch	myGlitch;
-    
-    
-    //float x, y;
-    
-    CA2d ca2d;
-    
-    bool debug;
+    ofFbo myFbo;
+    ofxPostGlitch myGlitch;
 };

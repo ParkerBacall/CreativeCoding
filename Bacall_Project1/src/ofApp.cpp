@@ -44,6 +44,10 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    for (int i = 0; i < image.size(); i++) {
+        image[i].draw(0, 0, 600, 600);
+      }
+
     
     // the current scene is automatically updated before this function
 }
@@ -60,6 +64,7 @@ void ofApp::draw(){
     ofDrawBitmapStringHighlight("fps: "+ofToString(ofGetFrameRate()), ofGetWidth()-110, 20);
     }
 }
+
 
 // current scene input functions are called automatically before calling these
 
@@ -149,5 +154,10 @@ void ofApp::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){
-
+    if (dragInfo.files.size() > 0) {
+       image.assign(dragInfo.files.size(), ofImage());
+       for (int i = 0; i < dragInfo.files.size(); i++) {
+         image[i].load(dragInfo.files[i]);
+       }
+     }
 }

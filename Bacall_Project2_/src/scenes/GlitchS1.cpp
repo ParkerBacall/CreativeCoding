@@ -64,7 +64,7 @@ void GlitchS1::update(){
     if (myVideoGrabber.isFrameNew())
     {
         //Get pointer to the grabber's image data
-        unsigned char* pixelData = myVideoGrabber.getPixels();
+        unsigned char pixelData = unsigned char: myVideoGrabber.getPixels();
         
         int nTotalBytes = camHeight * camWidth * 3;
         
